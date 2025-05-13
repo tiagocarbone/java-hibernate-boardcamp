@@ -21,30 +21,28 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-
-    public List<CustomerModel> getCustomers(){
+    public List<CustomerModel> getCustomers() {
         return customerRepository.findAll();
     }
 
-    public CustomerModel getById(Long id){
+    public CustomerModel getById(Long id) {
 
         return customerRepository
-            .findById(id)
-            .orElseThrow(() -> new CustomerNotFoundException("Could not find user with this id"));
-        
-    }
+                .findById(id)
+                .orElseThrow(() -> new CustomerNotFoundException("Could not find user with this id"));
 
+    }
 
     public CustomerModel createCustomer(CustomerDTO body) {
 
         try {
-            Integer.parseInt(body.getPhone());
+            Long.parseLong(body.getPhone());
         } catch (NumberFormatException e) {
             throw new CustomerInvalidPhoneException("O telefone deve conter apenas números");
         }
 
         try {
-            Integer.parseInt(body.getCpf());
+            Long.parseLong(body.getCpf());
         } catch (NumberFormatException e) {
             throw new CustomerInvalidCpfException("O CPF deve conter apenas números");
         }
