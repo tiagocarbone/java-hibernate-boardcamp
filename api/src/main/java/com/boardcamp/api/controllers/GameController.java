@@ -10,6 +10,8 @@ import com.boardcamp.api.services.GameService;
 
 import jakarta.validation.Valid;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +32,11 @@ public class GameController {
     }
 
     @GetMapping("")
-    public String getGames() {
-        return "ffc";
+    public ResponseEntity<List<GameModel>> getGames() {
+
+        List<GameModel> games = gameService.getGames();
+
+        return ResponseEntity.status(HttpStatus.OK).body(games);
     }
 
     @PostMapping("")

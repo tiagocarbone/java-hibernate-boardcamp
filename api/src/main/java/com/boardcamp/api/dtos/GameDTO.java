@@ -19,7 +19,7 @@ public class GameDTO {
     private String image;
 
     @NotNull
-    @Min(value = 1, message = "O valor stockTotal private int stockTotal deve ser maior que zero")
+    @Min(value = 1, message = "O valor stockTotal deve ser maior que zero")
     private int stockTotal;
 
     @NotNull

@@ -8,5 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
 public interface GameRepository extends JpaRepository<GameModel, Long> {
+
+    boolean existsByName(String name); 
+
     
 }
