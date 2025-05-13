@@ -73,14 +73,13 @@ public class RentService {
             throw new RentClosedException("rent already closed");
         }
 
-        // Data de devolução hoje
+        
         LocalDate returnDate = LocalDate.now();
         rent.setReturnDate(returnDate);
 
-        // Data esperada de devolução = data do aluguel + dias alugados
         LocalDate expectedReturnDate = rent.getRentDate().plusDays(rent.getDaysRented());
 
-        // Calcula dias de atraso (se houver)
+       
         long daysLate = ChronoUnit.DAYS.between(expectedReturnDate, returnDate);
 
         if (daysLate > 0) {
