@@ -28,8 +28,7 @@ public class RentService {
     final GameRepository gameRepository;
     final CustomerRepository customerRepository;
 
-    public RentService(RentRepository rentRepository, GameRepository gameRepository,
-            CustomerRepository customerRepository) {
+    public RentService(RentRepository rentRepository, GameRepository gameRepository, CustomerRepository customerRepository) {
         this.rentRepository = rentRepository;
         this.gameRepository = gameRepository;
         this.customerRepository = customerRepository;
